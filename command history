@@ -1,0 +1,92 @@
+CUDA_VISIBLE_DEVICES=0 python train.py --name original
+
+\\ CUDA_VISIBLE_DEVICES=0 python train_1.py --ncc [1,1,1] --msdn dense_model --name dense_yolo
+
+CUDA_VISIBLE_DEVICES=0 python train_1.py --ncc [1,1,1] --msdn dense1_model --resume dense_model/darknet19_voc07trainval_exp3_48.h5 --name dense1_yolo
+
+CUDA_VISIBLE_DEVICES=0 python test.py --resume darknet19_voc07trainval_exp3/darknet19_voc07trainval_exp3_145.h5 --imsavefolder ori_out --name test_origin
+
+CUDA_VISIBLE_DEVICES=0 python test1.py --resume dense1_model/darknet19_voc07trainval_exp3_158.h5 --ncc [1,1,1] --imsavefolder dense1_out --name test_dense1
+
+
+----------------------------------------------------------------------------------------------------------------------
+lr-decay {70, 120)
+
+CUDA_VISIBLE_DEVICES=0 python train.py --name scratch_origin
+
+CUDA_VISIBLE_DEVICES=0 python train_1.py --ncc [0,0,1] --msdn dense001_model --name dense001_yolo
+
+CUDA_VISIBLE_DEVICES=0 python train_1.py --ncc [0,1,1] --msdn dense011_model --name dense011_yolo
+
+CUDA_VISIBLE_DEVICES=0 python train_1.py --ncc [1,1,1] --msdn dense111_model --name dense111_yolo
+
+CUDA_VISIBLE_DEVICES=0 python train_1.py --ncc [1,1,0] --msdn dense110_model --name dense110_yolo
+
+CUDA_VISIBLE_DEVICES=0 python train_1.py --ncc [1,0,1] --msdn dense101_model --name dense101_yolo
+
+CUDA_VISIBLE_DEVICES=0 python train_1.py --ncc [1,0,0] --msdn dense100_model --name dense100_yolo
+
+CUDA_VISIBLE_DEVICES=0 python train_1.py --ncc [0,1,0] --msdn dense010_model --name dense010_yolo
+
+CUDA_VISIBLE_DEVICES=0 python train_2.py --ncc [1,1,1] --msdn 2dense111_model --name 2dense111_yolo
+
+CUDA_VISIBLE_DEVICES=0 python train_2.py --ncc [0,0,0] --msdn 2dense000_model --name 2dense000_yolo
+
+----------------------------------------------------------------------------------------------------------------------
+
+CUDA_VISIBLE_DEVICES=0 python test.py --resume darknet19_voc07trainval_exp3/darknet19_voc07trainval_exp3_158.h5 --imsavefolder 0000_out --name test_0000
+
+CUDA_VISIBLE_DEVICES=0 python test1.py --resume dense001_model/darknet19_voc07trainval_exp3_158.h5 --ncc [0,0,1] --imsavefolder 0010_out --name test_0010
+
+CUDA_VISIBLE_DEVICES=0 python test1.py --resume dense010_model/darknet19_voc07trainval_exp3_158.h5 --ncc [0,1.0] --imsavefolder 0100_out --name test_0100
+
+CUDA_VISIBLE_DEVICES=0 python test1.py --resume dense100_model/darknet19_voc07trainval_exp3_158.h5 --ncc [1,0,0] --imsavefolder 1000_out --name test_1000
+
+CUDA_VISIBLE_DEVICES=0 python test1.py --resume dense011_model/darknet19_voc07trainval_exp3_158.h5 --ncc [0,1,1] --imsavefolder 0110_out --name test_0110
+
+CUDA_VISIBLE_DEVICES=0 python test1.py --resume dense101_model/darknet19_voc07trainval_exp3_158.h5 --ncc [1,0,1] --imsavefolder 1010_out --name test_1010
+
+CUDA_VISIBLE_DEVICES=0 python test1.py --resume dense110_model/darknet19_voc07trainval_exp3_158.h5 --ncc [1,1,0] --imsavefolder 1100_out --name test_1100
+
+CUDA_VISIBLE_DEVICES=0 python test1.py --resume dense111_model/darknet19_voc07trainval_exp3_158.h5 --ncc [1,1,1] --imsavefolder 1110_out --name test_1110
+
+CUDA_VISIBLE_DEVICES=0 python test2.py --resume 2dense000_model/darknet19_voc07trainval_exp3_158.h5 --ncc [0,0,0] --imsavefolder 0001_out --name test_0001
+
+CUDA_VISIBLE_DEVICES=0 python test2.py --resume 2dense111_model/darknet19_voc07trainval_exp3_158.h5 --ncc [1,1,1] --imsavefolder 1111_out --name test_1111
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ctr Z   
+disown -h %[1]
+bg 1
+
